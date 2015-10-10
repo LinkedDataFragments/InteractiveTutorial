@@ -14,7 +14,7 @@
 
   $execute.click(function () {
     $output.empty();
-    $triggers.off('click');
+    $triggers.prop('disabled', true).off('click');
 
     var func, code = 'func=function(){' + $code.val() + '}';
     try { eval(code); }
@@ -25,7 +25,9 @@
 
   $triggers.each(function () {
     var $button = $(this), buttonId = $button.attr('id');
-    window[buttonId] = $button.click.bind($button);
+    window[buttonId] = function (callback) {
+      $button.prop('disabled', false).click(callback);
+    };
   });
 
   $code.on('change keyup', function () {
