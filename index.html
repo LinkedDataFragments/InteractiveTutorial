@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Linked Data Fragments</title>
+  <link rel="stylesheet" href="styles/ldf.css" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+</head>
+<body>
+  <header>
+    <h1>Triple Pattern Fragments Federation <em>Tutorial</em></h1>
+    <figure class="logo">
+      <a href="http://linkeddatafragments.org/"><img src="images/ldf.svg" alt="Linked Data Fragments" /></a>
+    </figure>
+  </header>
+  <main>
+    <h2>Triple Pattern Fragments in the browser</h2>
+    <p>Browse some Triple Pattern Fragments:</p>
+    <ul>
+      <li><a href="http://fragments.dbpedia.org/2015/en">http://fragments.dbpedia.org/2015/en</a></li>
+      <li><a href="http://fragments.dbpedia.org/2015/en?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FPennsylvania">http://fragments.dbpedia.org/2015/en?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FPennsylvania</a></li>
+      <li><a href="http://fragments.dbpedia.org/2015/en?object=http%3A%2F%2Fdbpedia.org%2Fresource%2FPennsylvania">http://fragments.dbpedia.org/2015/en?object=http%3A%2F%2Fdbpedia.org%2Fresource%2FPennsylvania</a></li>
+    </ul>
+    <p>Make your browser execute a SPARQL query with Triple Pattern Fragments:</p>
+    <ul>
+      <li><a href="http://client.linkeddatafragments.org/">http://client.linkeddatafragments.org/</a></li>
+    </ul>
+
+    <h2>Triple Pattern Fragments for machine clients</h2>
+    <p>Fetch Triple Pattern Fragments with curl.</p>
+    <p><a href="examples.sh">Examples</a>.</p>
+
+    <h2>Programming Triple Pattern Fragments</h2>
+    <ul>
+      <li><a href="console.html#%2F%2F%20Output%20things%20with%20the%20show%20function%0Ashow(%22It's%20just%20JavaScript%22)%3B%0A%0A%2F%2F%20It's%20just%20a%20helper%20to%20play%20with%20JavaScript%20in%20the%20browser%2C%20really%0Afor%20(var%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B)%0A%20%20show('Counting'%2C%20i)%3B%0A%0A%2F%2F%20Object%20can%20be%20fully%20printed%20as%20well%0Ashow(%7B%20json%3A%20true%2C%20xml%3A%20false%20%7D)%3B">Getting started with the console</a></li>
+      <li><a href="console.html#%2F%2F%20Create%20a%20client%20that%20fetches%20fragments%20over%20HTTP%0Avar%20fragments%20%3D%20new%20ldf.FragmentsClient('http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen')%3B%0A%0A%2F%2F%20Fetch%20the%20fragment%20with%20the%20specified%20pattern%0Avar%20pattern%20%3D%20%7B%20subject%3A%20'http%3A%2F%2Fdbpedia.org%2Fresource%2FPennsylvania'%20%7D%3B%0Avar%20fragment%20%3D%20fragments.getFragmentByPattern(pattern)%3B%0A%0A%2F%2F%20Print%20all%20data%20of%20the%20fragment%0Afragment.on('data'%2C%20show)%3B">Fetching data from a fragment</a></li>
+    </ul>
+  </main>
+  <footer>
+    <p>©2015 Multimedia Lab – iMinds – Ghent University</p>
+  </footer>
+</body>
+</html>
+
