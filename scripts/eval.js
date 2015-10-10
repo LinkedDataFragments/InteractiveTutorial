@@ -1,6 +1,6 @@
 /*! @license ©2015 Ruben Verborgh - Multimedia Lab / iMinds / Ghent University */
 (function ($) {
-  var $code = $('#code'), $output = $('#output'), $execute = $('#execute');
+  var $code = $('#code'), $output = $('#output'), $execute = $('#execute'), $triggers = $('button.trigger');
 
   window.show = function () {
     var result = $('<p>').appendTo($output);
@@ -14,11 +14,18 @@
 
   $execute.click(function () {
     $output.empty();
+    $triggers.off('click');
+
     var func, code = 'func=function(){' + $code.val() + '}';
     try { eval(code); }
     catch (error) { throw new Error('Syntax error'); }
     try { func(); }
     catch (error) { onerror(error.message); }
+  });
+
+  $triggers.each(function () {
+    var $button = $(this), buttonId = $button.attr('id');
+    window[buttonId] = $button.click.bind($button);
   });
 
   $code.on('change keyup', function () {
